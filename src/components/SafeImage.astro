@@ -1,0 +1,19 @@
+---
+export let src;
+export let formats = ["avif", "webp", "png"]
+export let alt;
+export let className;
+---
+
+<style>
+img {
+	color: transparent;
+}
+</style>
+
+<picture>
+{formats.slice(0, -1).map(format => 
+	<source class={className} srcset={`${src}.${format}`} type={`image/${format}`}/>
+)}
+	<img alt={alt} class={className} src={`${src}.${formats[formats.length - 1]}`}/>
+</picture>

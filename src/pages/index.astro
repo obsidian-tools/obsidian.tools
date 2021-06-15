@@ -1,4 +1,5 @@
 ---
+import LogoModel from "../components/LogoModel"
 ---
 
 <!DOCTYPE html>
@@ -24,20 +25,17 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
-        max-width: min(100%, 68ch);
         align-items: center;
         position: relative;
+				width: 100%;
       }
       h1 {
         font-family: "DM Sans", sans-serif;
         text-transform: uppercase;
         font-size: 100px;
-        white-space: nowrap;
-        position: absolute;
         color: rgb(217, 179, 131);
-      }
-      model-viewer#logo {
-        --poster-color: transparent;
+				text-align: center;
+				margin-bottom: -1.5em;
       }
       .coming-soon h2 {
         display: flex;
@@ -46,37 +44,12 @@
         margin-top: -4rem;
       }
     </style>
-    <script
-      type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-    ></script>
   </head>
   <body>
     <main>
       <header>
         <h1>Obsidian Tools</h1>
-        <model-viewer
-          id="logo"
-          src="assets/obsidian-tools.glb"
-          poster="assets/obsidian-poster.webp"
-          alt="The obsidian crystal hovering in the center of a slowly ocillating metal gear"
-          loading="eager"
-          camera-orbit="0dg 90deg 105%"
-          style="width: 512px; height: 512px"
-          autoplay
-        >
-        </model-viewer>
-        <noscript>
-          <style>
-            model-viewer {
-              display: none;
-            }
-          </style>
-          <img
-            src="assets/obsidian-fallback.png"
-            style="width: 512px; height: 512px"
-          />
-        </noscript>
+				<LogoModel/>
       </header>
       <div class="coming-soon">
         <h2>Coming soon</h2>

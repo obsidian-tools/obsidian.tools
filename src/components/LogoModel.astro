@@ -1,0 +1,42 @@
+---
+import SafeImage from './SafeImage.astro'
+
+const logoAlt = "The obsidian crystal hovering in the center of a slowly ocillating metal gear"
+---
+
+<head>
+  <script
+		async
+    type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+  ></script>
+  <style>
+    model-viewer.logo-model {
+      --poster-color: transparent;
+			background-color: unset;
+    }
+		:global(.logo-fallback), model-viewer {
+			width: 512px;
+			height: 512px;
+		}
+		.model-container {
+			position: relative;
+		}
+  </style>
+</head>
+
+<div class="model-container">
+	<model-viewer
+		class="logo-model"
+		src="assets/obsidian-tools.glb"
+		alt={logoAlt}
+		loading="eager"
+		camera-orbit="0dg 90deg 105%"
+		autoplay
+	>
+		<div slot="poster">
+			<SafeImage className="logo-fallback" src="assets/obsidian-fallback" alt={logoAlt} />
+		</div>
+		<div slot="progress-bar"></div>
+	</model-viewer>
+</div>
